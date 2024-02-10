@@ -9,11 +9,11 @@ function getComputerChoice(){
 }
 
 function playGame(playerChoice){
-    if (rounds < 4) {
+    if (playerScore < 5 && computerScore < 5) {
         playRound(playerChoice);
         final.textContent = "";
         rounds++;
-    } else if (rounds == 4) {
+    } else if (playerScore == 5 || computerScore == 5) {
         playRound(playerChoice);
         final.textContent = finalResult();
         rounds = 0;
@@ -23,9 +23,7 @@ function playGame(playerChoice){
 }
 
 function finalResult() {
-    if (playerScore == computerScore) {
-        return "Same!";
-    } else if (playerScore > computerScore) {
+    if (playerScore > computerScore) {
         return "WIN"
     } else {
         return "LOSE"
